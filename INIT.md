@@ -37,11 +37,11 @@ Friending es una app web para adolescentes orientada a crear amistades de forma 
 ## 4. Flujo de la aplicacion
 1. Home -> Sign in / Sign up / Demo.
 2. Sign up -> crea cuenta -> onboarding -> discover.
-3. Discover -> like/pass -> crea "amigos".
+3. Discover -> conectar/pasar -> crea "amigos".
 4. Amigos -> mensaje unico -> compartir contacto si ambos aceptan.
 5. Perfil -> editar datos y abrir configuracion (engranaje).
 6. Admin -> permisos, menus, historial, seguridad y gestion de admins.
-7. Moderacion y seguridad se aplican en registro, login, mensajes, likes, passes, vistas de perfil y uploads.
+7. Moderacion y seguridad se aplican en registro, login, mensajes, conexiones, passes, vistas de perfil y uploads.
 
 ## 5. Funciones/componentes clave y donde encontrarlos
 - Estado y permisos: `src/app/state/store.js`
@@ -62,7 +62,11 @@ Friending es una app web para adolescentes orientada a crear amistades de forma 
 - Persistencia actual es `localStorage` con versionado y migraciones.
 - Permisos existen pero varias pantallas son placeholders.
 - El panel admin ya controla menus reales de navegacion.
+- Discover incluye buscador de usuarios por nombre, ciudad e intereses.
+- DaVinci no puede eliminarse nunca; solo Vector puede inhabilitarlo.
 - Si cambias credenciales seed, limpia `localStorage` para ver efecto.
 - Moderacion y seguridad operan en cliente; si agregas backend, replica la logica en servidor.
 - La cola offline esta lista para integrarse con endpoints reales.
 - Errores globales del cliente se registran en seguridad y telemetria.
+
+

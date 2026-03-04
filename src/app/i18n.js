@@ -47,8 +47,10 @@ const translations = {
     discoverTipBody: "Empieza la conversacion con algo que comparten.",
     discoverTipExample: 'Hey! Vi que te gusta {{interest}}.',
     discoverDefaultInterest: "lo mismo",
-    discoverLike: "Me gusta",
+    discoverLike: "Conectar",
     discoverPass: "Pasar",
+    discoverSearch: "Buscar usuario",
+    discoverSearchPlaceholder: "Nombre, ciudad o interes",
     demoTitle: "Modo demo",
     demoBody:
       "Explora una version de ejemplo con perfiles ficticios. Para conectar de verdad, crea una cuenta.",
@@ -57,7 +59,7 @@ const translations = {
     emptySeenBody: "Vuelve mas tarde para nuevas amistades.",
     emptyGoFriends: "Ir a amigos",
     friendsEmptyTitle: "Aun sin amigos",
-    friendsEmptyBody: "Da algunos likes para abrir nuevas amistades.",
+    friendsEmptyBody: "Da algunos contactos para abrir nuevas amistades.",
     friendsTitle: "Tus amigos",
     friendsAsideTitle: "Amistades seguras",
     friendsAsideBody: "Solo envia un mensaje inicial. Si ambos quieren, comparten datos.",
@@ -288,8 +290,10 @@ const translations = {
     discoverTipBody: "Start with something you both like.",
     discoverTipExample: 'Hey! I saw you like {{interest}}.',
     discoverDefaultInterest: "the same thing",
-    discoverLike: "Like",
+    discoverLike: "Connect",
     discoverPass: "Pass",
+    discoverSearch: "Search users",
+    discoverSearchPlaceholder: "Name, city or interest",
     demoTitle: "Demo mode",
     demoBody:
       "Explore an example version with fictional profiles. To connect for real, create an account.",
@@ -298,7 +302,7 @@ const translations = {
     emptySeenBody: "Come back later for new friends.",
     emptyGoFriends: "Go to friends",
     friendsEmptyTitle: "No friends yet",
-    friendsEmptyBody: "Send some likes to open new friendships.",
+    friendsEmptyBody: "Send some connections to open new friendships.",
     friendsTitle: "Your friends",
     friendsAsideTitle: "Safe friendships",
     friendsAsideBody: "Send one intro message. If both agree, share contacts.",
@@ -529,8 +533,10 @@ const translations = {
     discoverTipBody: "Comenca la conversa amb algo que compartiu.",
     discoverTipExample: 'Ei! He vist que t’agrada {{interest}}.',
     discoverDefaultInterest: "el mateix",
-    discoverLike: "M'agrada",
+    discoverLike: "Connectar",
     discoverPass: "Passar",
+    discoverSearch: "Cercar usuari",
+    discoverSearchPlaceholder: "Nom, ciutat o interes",
     demoTitle: "Mode demo",
     demoBody:
       "Explora una versio d’exemple amb perfils ficticis. Per connectar de veritat, crea un compte.",
@@ -539,7 +545,7 @@ const translations = {
     emptySeenBody: "Torna mes tard per noves amistats.",
     emptyGoFriends: "Anar a amics",
     friendsEmptyTitle: "Encara sense amics",
-    friendsEmptyBody: "Fes alguns likes per obrir noves amistats.",
+    friendsEmptyBody: "Fes alguns contactes per obrir noves amistats.",
     friendsTitle: "Els teus amics",
     friendsAsideTitle: "Amistats segures",
     friendsAsideBody: "Envia un missatge inicial. Si tots dos voleu, compartiu dades.",
@@ -735,3 +741,5 @@ export const languages = [
   { code: "es", label: "ES" },
   { code: "ca", label: "CA" },
 ];
+
+

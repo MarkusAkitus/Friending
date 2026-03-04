@@ -36,6 +36,7 @@ import {
   setUserSettingsTab,
   setActiveProfile,
   setUserSearchQuery,
+  setDiscoverQuery,
   deleteUserById,
   toggleUserDisabled,
   getPermissionsCatalog,
@@ -738,6 +739,9 @@ const clickHandlers = {
   userSearch: (target) => {
     setUserSearchQuery(target.value || "");
   },
+  discoverSearch: (target) => {
+    setDiscoverQuery(target.value || "");
+  },
   deleteUser: (target) => {
     if (!enforceAction("users.delete")) return;
     const userId = target.getAttribute("data-user");
@@ -881,3 +885,5 @@ export function startApp() {
   offlineQueue.start(() => true);
   renderApp();
 }
+
+

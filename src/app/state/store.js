@@ -28,6 +28,7 @@ function createInitialState() {
       userSettingsTab: "privacy",
       activeProfileId: null,
       userSearchQuery: "",
+      discoverQuery: "",
       moderationRestrictions: {},
       activityLog: [],
       telemetry: { events: [], counters: {} },
@@ -51,7 +52,8 @@ let state = loadState() || createInitialState();
     userSettingsTab: "privacy",
     activeProfileId: null,
     userSearchQuery: "",
-    moderationRestrictions: {},
+      discoverQuery: "",
+      moderationRestrictions: {},
     activityLog: [],
     telemetry: { events: [], counters: {} },
     securityLogs: [],
@@ -72,6 +74,9 @@ if (!state.ui.activeProfileId) {
 }
 if (state.ui.userSearchQuery === undefined) {
   state.ui.userSearchQuery = "";
+}
+if (state.ui.discoverQuery === undefined) {
+  state.ui.discoverQuery = "";
 }
 if (!state.ui.moderationRestrictions) {
   state.ui.moderationRestrictions = {};
@@ -306,6 +311,16 @@ export function setUserSearchQuery(query) {
     ui: {
       ...state.ui,
       userSearchQuery: query,
+    },
+  });
+}
+
+export function setDiscoverQuery(query) {
+  setState({
+    ...state,
+    ui: {
+      ...state.ui,
+      discoverQuery: query,
     },
   });
 }
@@ -860,6 +875,10 @@ export function deleteAdmin(userId) {
 export function deleteUserById(userId, actor) {
   if (!actor) return;
   if (!["Vector", "DaVinci"].includes(actor.username)) return;
+  const targetUser = state.auth.users.find((u) => u.id === userId);
+  if (!targetUser) return;
+  if (targetUser.username === "DaVinci") return;
+  if (actor.username === "DaVinci" && actor.id === userId) return;
   const users = state.auth.users.filter((u) => u.id !== userId);
   addAuditLog({
     action: "user.delete",
@@ -871,6 +890,7 @@ export function deleteUserById(userId, actor) {
 
 export function toggleUserDisabled(targetUserId, actor) {
   if (!actor || actor.username !== "Vector") return;
+  if (actor.id === targetUserId) return;
   const users = state.auth.users.map((u) =>
     u.id === targetUserId && u.username === "DaVinci" ? { ...u, disabled: !u.disabled } : u
   );
@@ -992,3 +1012,7 @@ export function revealMyContact(matchId) {
   matches.unshift(updatedMatch);
   setState({ ...state, matches });
 }
+
+
+
+

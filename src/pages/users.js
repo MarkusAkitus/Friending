@@ -19,6 +19,7 @@ export function usersPage(state) {
   const admins = users.filter((u) => u.role === "admin").filter(matchesQuery).sort(sortAlpha);
   const normals = users.filter((u) => u.role === "user").filter(matchesQuery).sort(sortAlpha);
   const ordered = [...superadmins, ...admins, ...normals];
+
   return `
     <section class="page">
       <div class="panel">
@@ -37,7 +38,7 @@ export function usersPage(state) {
             <div class="admin-row">
               <div>
                 <strong>${user.username}</strong>
-                <div class="muted">${user.role}${user.level ? ` Â· ${user.level}` : ""}</div>
+                <div class="muted">${user.role}${user.level ? ` · ${user.level}` : ""}</div>
                 ${user.disabled ? `<div class="status-badge status-waiting">${t(lang, "usersDisabled")}</div>` : ""}
               </div>
               <div class="menu-actions">
@@ -50,7 +51,7 @@ export function usersPage(state) {
                     : ""
                 }
                 ${
-                  canDeleteUsers && user.username !== "Vector"
+                  canDeleteUsers && user.username !== "Vector" && user.username !== "DaVinci"
                     ? `<button class="ghost" data-action="deleteUser" data-user="${user.id}">
                         ${t(lang, "usersDelete")}
                       </button>`
